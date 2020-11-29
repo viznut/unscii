@@ -1,0 +1,1575 @@
+"Divisions" mainly refers to graphics characters that split he cell in two
+areas, usually along a straight line. Some related characters (such as
+hollow versions of some triangles) are also included.
+
+Orthogonal divisions that align with 2x2, 2x3 and 2x4 grids are in
+grids.txt. The characters here are non-orthogonal and/or non-aligning.
+
+Geometric shapes not aligned with cell borders are in shapes.txt.
+
+Videotex standardizes a large set of these characters.
+Summary of these from CCITT recommendation T.101:
+- "Block mosaics" (MG00..MG32): 2x3 grids
+- "Sub cell aligned smooth mosaics" (SG01..SG56): non-orthogonal division
+  characters that align with the points of the 2x3 grid.
+- "General smooth mosaics" (MS01..MS31): miscellaneous characters that
+  don't fit in the MG and SG ranges:
+  - 2x2 grids
+  - Non-orthogonal divisions aligning with 2x2 grid (1/2 and 1/4 cell
+    diagonals)
+  - Centered 1/4-cell rectangles aligned on top and bottom
+  - Left and right half ovals (outlined, solid and inverse versions)
+  - Full-cell isosceles triangles
+  - Middle pieces of three-cell isosceles triangles
+  - Two filled crosses (cell contains two isosceles triangles facing each
+    other)
+
+Triangle-based characters primarily by the dimensions of the minority-color
+orthogonal subcell divided by the triangle:
+- Right-angled triangles: (ordered LowRight, LowLeft, UpLeft, UpRight;
+  inverse series follows positive series, rastershades follow inverse)
+  - 1/1 (1/1 x 1/1)
+  - 2/3 (1/1 x 2/3)
+  - 1/2
+    - 1/1 x 1/2
+    - 1/2 x 1/1
+  - 1/3
+    - 2/3 x 1/2
+    - 1/3 x 1/1
+  - 1/4 (1/2 x 1/2)
+  - 1/6 (1/2 x 1/3)
+  - Middle part of right-angled triangle
+- Isosceles triangles
+  - 1/1
+  - 1/2
+    - 1/1 x 1/2
+    - 1/2 x 1/1
+  - Middle part of isosceles triangle
+  - Opposing isosceles triangles
+
+======================== RATIO BLOCKS =============================
+
+The Unicode set apparently comes from the NEC PC character set via JIS/BIG5.
+The originals are in 8x16 / 16x16, so they're trivial to implement in 8x8.
+
+U+2580
+VEC rect(0,0,96,midy)
+
+8x8
+########
+########
+########
+########
+........
+........
+........
+........
+
+U+2581
+VEC rect(0,96,96,96-12)
+
+8x8
+........
+........
+........
+........
+........
+........
+........
+########
+
+U+2582
+VEC rect(0,96,96,96-12*2)
+
+8x8
+........
+........
+........
+........
+........
+........
+########
+########
+
+U+2583
+VEC rect(0,96,96,96-12*3)
+
+8x8
+........
+........
+........
+........
+........
+########
+########
+########
+
+U+2584 
+VEC rect(0,96,96,96-12*4)
+
+8x8
+........
+........
+........
+........
+########
+########
+########
+########
+
+U+2585
+VEC rect(0,96,96,96-12*5)
+
+8x8
+........
+........
+........
+########
+########
+########
+########
+########
+
+U+2586
+VEC rect(0,96,96,96-12*6)
+
+8x8
+........
+........
+########
+########
+########
+########
+########
+########
+
+U+2587
+VEC rect(0,96,96,96-12*7)
+
+8x8
+........
+########
+########
+########
+########
+########
+########
+########
+
+U+2588
+VEC rect(0,0,96,96)
+
+8x8
+########
+########
+########
+########
+########
+########
+########
+########
+
+U+2589
+VEC rect(0,0,96-12*1,96)
+
+8x8
+#######.
+#######.
+#######.
+#######.
+#######.
+#######.
+#######.
+#######.
+
+U+258A
+VEC rect(0,0,96-12*2,96)
+
+8x8
+######..
+######..
+######..
+######..
+######..
+######..
+######..
+######..
+
+U+258B
+VEC rect(0,0,96-12*3,96)
+
+8x8
+#####...
+#####...
+#####...
+#####...
+#####...
+#####...
+#####...
+#####...
+
+U+258C
+VEC rect(0,0,96-12*4,96)
+
+8x8
+####....
+####....
+####....
+####....
+####....
+####....
+####....
+####....
+
+U+258D
+VEC rect(0,0,96-12*5,96)
+
+8x8
+###.....
+###.....
+###.....
+###.....
+###.....
+###.....
+###.....
+###.....
+
+U+258E
+VEC rect(0,0,96-12*6,96)
+
+8x8
+##......
+##......
+##......
+##......
+##......
+##......
+##......
+##......
+
+U+258F
+VEC rect(0,0,12,96)
+
+8x8
+#.......
+#.......
+#.......
+#.......
+#.......
+#.......
+#.......
+#.......
+
+U+2590
+VEC rect(48,0,96,96)
+
+8x8
+....####
+....####
+....####
+....####
+....####
+....####
+....####
+....####
+
+U+2594
+VEC rect(0,0,96,12)
+
+8x8
+########
+........
+........
+........
+........
+........
+........
+........
+
+
+U+2595
+VEC rect(96-12,0,96,96)
+
+8x8
+.......#
+.......#
+.......#
+.......#
+.......#
+.......#
+.......#
+.......#
+
+Unicode (following JIS and BIG5) lacked the right and top ratio blocks until
+version 13.
+
+U+E100	RIGHT ONE QUARTER BLOCK
+VEC rect(96-12*2,0,96,96)
+
+8x8
+......##
+......##
+......##
+......##
+......##
+......##
+......##
+......##
+
+U+E101	RIGHT THREE EIGHTS BLOCK
+VEC rect(96-12*3,0,96,96)
+
+8x8
+.....###
+.....###
+.....###
+.....###
+.....###
+.....###
+.....###
+.....###
+
+U+E102	RIGHT FIVE EIGHTS BLOCK
+VEC rect(96-12*5,0,96,96)
+
+8x8
+...#####
+...#####
+...#####
+...#####
+...#####
+...#####
+...#####
+...#####
+
+U+E103	RIGHT THREE QUARTERS BLOCK
+VEC rect(96-12*6,0,96,96)
+
+8x8
+..######
+..######
+..######
+..######
+..######
+..######
+..######
+..######
+
+U+E104	RIGHT SEVEN EIGHTS BLOCK
+VEC rect(96-12*7,0,96,96)
+
+8x8
+.#######
+.#######
+.#######
+.#######
+.#######
+.#######
+.#######
+.#######
+
+U+E105	UPPER ONE QUARTER BLOCK
+VEC rect(0,0,96,12*2)
+
+8x8
+########
+########
+........
+........
+........
+........
+........
+........
+
+U+E106	UPPER THREE EIGHTS BLOCK
+VEC rect(0,0,96,12*3)
+
+8x8
+########
+########
+########
+........
+........
+........
+........
+........
+
+U+E107	UPPER FIVE EIGHTS BLOCK
+VEC rect(0,0,96,12*5)
+
+8x8
+########
+########
+########
+########
+########
+........
+........
+........
+
+U+E108	UPPER THREE QUARTERS BLOCK
+VEC rect(0,0,96,12*6)
+
+8x8
+########
+########
+########
+########
+########
+########
+........
+........
+
+U+E109	UPPER SEVEN EIGHTS BLOCK
+VEC rect(0,0,96,12*7)
+
+8x8
+########
+########
+########
+########
+########
+########
+########
+........
+
+Unicode 13 mapping:
+
+U+1FB82 = E105
+U+1FB83 = E106
+U+1FB84 = E107
+U+1FB85 = E108
+U+1FB86 = E109
+
+U+1FB87 = E100
+U+1FB88 = E101
+U+1FB89 = E102
+U+1FB8A = E103
+U+1FB8B = E104
+
+Some of these pieces exist as half-shaded in PETSCII and Amstrad CPC. The
+C-64 glyph is given a separate position because Amstrad CPC differentiates
+1x1 and 2x2 full-block medium shades.
+
+U+E10A	UPPER HALF MEDIUM SHADE
+VEC rect_shade(0,0,96,48)
+8x8
+#.#.#.#. 	Amstrad CPC / Sharp MZ.
+.#.#.#.# 
+#.#.#.#. 
+.#.#.#.# 
+........
+........
+........
+........
+
+8x16
+#.#.#.#. 
+.#.#.#.# 
+#.#.#.#. 
+.#.#.#.# 
+#.#.#.#. 
+.#.#.#.# 
+#.#.#.#. 
+.#.#.#.# 
+........
+........
+........
+........
+........
+........
+........
+........
+
+U+E10B	LOWER HALF MEDIUM SHADE
+VEC rect_shade(0,48,96,96)
+8x8
+........	Amstrad CPC / Commodore PET/VIC-20 / Sharp MZ.
+........ 
+........ 
+........ 
+#.#.#.#. 
+.#.#.#.# 
+#.#.#.#. 
+.#.#.#.# 
+
+8x16
+........
+........ 
+........ 
+........ 
+........
+........ 
+........ 
+........ 
+#.#.#.#. 
+.#.#.#.# 
+#.#.#.#. 
+.#.#.#.# 
+#.#.#.#. 
+.#.#.#.# 
+#.#.#.#. 
+.#.#.#.# 
+
+U+E10C	LEFT HALF MEDIUM SHADE
+VEC rect_shade(0,0,48,96)
+8x8
+#.#..... 	Amstrad CPC / Sharp MZ.
+.#.#.... 
+#.#..... 
+.#.#.... 
+#.#..... 
+.#.#.... 
+#.#..... 
+.#.#.... 
+
+8x16
+#.#..... 
+.#.#.... 
+#.#..... 
+.#.#.... 
+#.#..... 
+.#.#.... 
+#.#..... 
+.#.#.... 
+#.#..... 
+.#.#.... 
+#.#..... 
+.#.#.... 
+#.#..... 
+.#.#.... 
+#.#..... 
+.#.#.... 
+
+U+E10D	RIGHT HALF MEDIUM SHADE
+VEC rect_shade(48,0,96,96)
+8x8
+....#.#.	Amstrad CPC / Sharp MZ.
+.....#.# 
+....#.#. 
+.....#.# 
+....#.#. 
+.....#.# 
+....#.#. 
+.....#.# 
+
+8x16
+....#.#.
+.....#.# 
+....#.#. 
+.....#.# 
+....#.#. 
+.....#.# 
+....#.#. 
+.....#.# 
+....#.#.
+.....#.# 
+....#.#. 
+.....#.# 
+....#.#. 
+.....#.# 
+....#.#. 
+.....#.# 
+
+U+E10E	UPPER HALF CHECKER BOARD FILL (no unicode)
+VEC rect_checkerboard(0,0,96,48)
+8x8
+##..##.. 	Included for symmetry.
+##..##.. 
+..##..## 
+..##..## 
+........
+........
+........
+........
+
+U+E10F	LOWER HALF CHECKER BOARD FILL (no unicode)
+VEC rect_checkerboard(0,48,96,96)
+8x8
+........ 	Commodore 64.
+........ 
+........ 
+........ 
+##..##.. 
+##..##.. 
+..##..## 
+..##..## 
+
+U+E110	LEFT HALF CHECKER BOARD FILL (no unicode)
+VEC rect_checkerboard(0,0,48,96)
+8x8
+##......	Commodore 64.
+##...... 
+..##.... 
+..##.... 
+##...... 
+##...... 
+..##.... 
+..##.... 
+
+U+E111	RIGHT HALF CHECKER BOARD FILL (no unicode)
+VEC rect_checkerboard(0,0,48,96)
+8x8
+....##..	Included for symmetry.
+....##.. 
+......## 
+......## 
+....##.. 
+....##.. 
+......## 
+......## 
+
+Unicode 13:
+
+U+1FB8C = E10C
+U+1FB8D = E10D
+U+1FB8E = E10A
+U+1FB8F = E10B
+
+U+1FB91 INV 1FB8F
+U+1FB92 INV 1FB8E
+U+1FB93 INV 1FB8D
+U+1FB94 INV 1FB8C
+
+U+XTND = 1FB91
+U+XTND = 1FB92
+U+XTND = 1FB93
+U+XTND = 1FB94
+
+=================== FULL-CELL RIGHT-ANGLED TRIANGLES ======================
+
+Even though these characters are usually implemented as non-full-block in
+modern fonts, they are extensively used as full-block in Taiwanese BBS art.
+
+The characters are full-block in WenQuanYi HenZei Mono and the NEC PC fonts.
+They are therefore strongly identified with similar characters in Western
+8-bit computers (Commodore, Amstrad, Atari) and Videotex.
+
+Note that the CJK characters are full-width, ours are half-width.
+Videotex smooth mosaics can be used to construct the full-width characters.
+
+U+25E2
+VEC poly(0,96,96,96,96,0)
+
+8x8
+.......#	Amstrad CPC / Atari 400/800. C-64 uses inverted block.
+......## 
+.....### 
+....#### 
+...##### 
+..###### 
+.####### 
+######## 
+
+U+25E3 FLIPX 25E2
+U+25E4 FLIPY 25E3
+U+25E5 FLIPY 25E2
+
+For consistency with other black-white pairs, the hollow glyphs are directly
+derived from the solid ones. However, there are fonts that implement the
+hollow variants as non-fullblock even though the solid variants are
+fullblock.
+
+U+25F8
+VEC poly(96,0,0,0,0,96)
+VEC poly_erase(96-slw-slh,slh,slw,slh,96-slh,96-slw-slh)
+
+8x8
+######## 
+##...##. 
+##..##.. 
+##.##... 
+####.... 
+###..... 
+##...... 
+#....... 
+
+U+25F9 FLIPX 25F8
+U+25FA FLIPY 25F8
+U+25FF FLIPX 25FA
+
+Amstrad CPC and Sharp MZ have half-raster versions of the diagonal
+triangles.
+
+U+E112	MEDIUM-SHADED LOWER RIGHT TRIANGLE
+VEC poly_shade(96,0,0,96,96,96)
+8x8
+........ 	Sharp MZ. Amstrad CPC has an incompatible pattern.
+.......# 
+......#. 
+.....#.# 
+....#.#. 
+...#.#.# 
+..#.#.#. 
+.#.#.#.# 
+
+
+8x16
+........ 
+.......#
+......#. 
+.......# 
+......#. 
+.....#.# 
+....#.#. 
+.....#.# 
+....#.#. 
+...#.#.# 
+..#.#.#. 
+...#.#.# 
+..#.#.#. 
+.#.#.#.# 
+#.#.#.#. 
+.#.#.#.# 
+
+U+E113	MEDIUM-SHADED LOWER LEFT TRIANGLE
+VEC poly_shade(0,0,0,96,96,96)
+8x8
+........	Sharp MZ. Amstrad CPC has an incompatible pattern.
+#....... 
+.#...... 
+#.#..... 
+.#.#.... 
+#.#.#... 
+.#.#.#.. 
+#.#.#.#. 
+
+8x16
+#.......
+........
+#.......
+.#......
+#.#.....
+.#......
+#.#.....
+.#.#....
+#.#.#...
+.#.#....
+#.#.#...
+.#.#.#..
+#.#.#.#. 
+.#.#.#.. 
+#.#.#.#. 
+.#.#.#.# 
+
+U+E114	MEDIUM-SHADED UPPER LEFT TRIANGLE
+VEC poly_shade(96,0,0,0,0,96)
+8x8
+#.#.#.#.	Amstrad CPC / Sharp MZ.
+.#.#.#.. 
+#.#.#... 
+.#.#.... 
+#.#..... 
+.#...... 
+#....... 
+........ 
+
+8x16
+#.#.#.#. 
+.#.#.#.#
+#.#.#.#.
+.#.#.#.. 
+#.#.#... 
+.#.#.#.. 
+#.#.#... 
+.#.#.... 
+#.#..... 
+.#.#.... 
+#.#..... 
+.#...... 
+#....... 
+.#...... 
+#....... 
+........ 
+
+U+E115	MEDIUM-SHADED UPPER RIGHT TRIANGLE
+VEC poly_shade(0,0,96,0,96,96)
+8x8
+#.#.#.#. 	Amstrad CPC / Sharp MZ.
+.#.#.#.# 
+..#.#.#. 
+...#.#.# 
+....#.#. 
+.....#.# 
+......#. 
+.......# 
+
+8x16
+#.#.#.#. 
+.#.#.#.#
+..#.#.#. 
+.#.#.#.# 
+..#.#.#. 
+...#.#.# 
+....#.#. 
+...#.#.# 
+....#.#. 
+.....#.# 
+......#. 
+.....#.# 
+......#. 
+.......# 
+........ 
+.......# 
+
+U+1FB9C = E114
+U+1FB9D = E115
+U+1FB9E = E112
+U+1FB9F = E113
+
+================= 2/3-CELL RIGHT-ANGLED TRIANGLES =========================
+
+Corresponding Videotex characters are:
+SG04 SG10 SG19 SG25 SG32 SG38 SG46 SG52.
+
+U+LR23
+VEC poly(96,32,0,96,96,96)
+
+8x8
+........
+........
+.......#
+......##
+....####
+...#####
+..######
+.#######
+
+8x16
+........
+........
+........
+........
+........
+........
+.......#
+......##
+......##
+.....###
+....####
+...#####
+...#####
+..######
+.#######
+.#######
+
+U+LL23 FLIPX LR23
+U+UL23 FLIPY LL23
+U+UR23 FLIPX UL23
+
+===================== HALF-CELL RIGHT-ANGLED TRIANGLES =====================
+
+Corresponding Videotex characters are:
+SG05 SG11 SG18 SG24 SG33 SG39 SG47 SG53.
+
+Unicode 13 fails to include these.
+
+U+LRH12		"HORIZONTAL" (1/1 x 1/2)
+VEC poly(96,48,0,96,96,96)
+
+8x8
+........
+........
+........
+........
+......##
+....####
+..######
+########
+
+8x16
+........
+........
+........
+........
+........
+........
+........
+........
+.......#
+......##
+.....###
+....####
+...#####
+..######
+.#######
+########
+
+U+LLH12 FLIPX LRH12
+U+ULH12 FLIPY LLH12
+U+URH12 FLIPX ULH12
+
+U+E11E = LRH12		LOWER RIGHT HORIZONTAL HALF-CELL TRIANGLE
+U+E11F = LLH12		LOWER LEFT HORIZONTAL HALF-CELL TRIANGLE
+U+E120 = ULH12		UPPER LEFT HORIZONTAL HALF-CELL TRIANGLE
+U+E121 = URH12		UPPER RIGHT HORIZONTAL HALF-CELL TRIANGLE
+
+U+E122 INV LRH12	INVERSE LOWER RIGHT HORIZONTAL HALF-CELL TRIANGLE
+U+E123 INV LLH12	INVERSE LOWER LEFT HORIZONTAL HALF-CELL TRIANGLE
+U+E124 INV ULH12	INVERSE UPPER LEFT HORIZONTAL HALF-CELL TRIANGLE
+U+E125 INV URH12	INVERSE UPPER RIGHT HORIZONTAL HALF-CELL TRIANGLE
+
+U+LRV12		"VERTICAL" (1/2 x 1/1)
+VEC poly(96,0,48,96,96,96)
+
+8x8
+.......#
+.......#
+......##
+......##
+.....###
+.....###
+....####
+....####
+
+U+LLV12 FLIPX LRV12
+U+ULV12 FLIPY LLV12
+U+URV12 FLIPX ULV12
+
+U+LRV12I
+8x8
+########
+#######.
+#######.
+######..
+######..
+######..
+#####...
+#####...
+
+U+LLV12I FLIPX LRV12I
+U+ULV12I FLIPY LLV12I
+U+URV12I FLIPX ULV12I
+
+===================== 1/3-CELL RIGHT-ANGLED TRIANGLES =====================
+
+Corresponding Videotex characters are:
+SG02 SG08 SG21 SG27 SG30 SG36 SG44 SG50 (horizontal) and
+SG03 SG09 SG20 SG26 SG31 SG37 SG45 SG51 (vertical).
+
+U+LRH13		HORIZONTAL (1/1 x 1/3)
+VEC poly(96,64,0,96,96,96)
+
+8x8
+........
+........
+........
+........
+........
+......##
+...#####
+########
+
+8x16
+........
+........
+........
+........
+........
+........
+........
+........
+........
+........
+........
+.......#
+.....###
+....####
+..######
+.#######
+
+U+LLH13 FLIPX LRH13
+U+ULH13 FLIPY LLH13
+U+URH13 FLIPX ULH13
+
+U+LRV13		VERTICAL (1/2 x 2/3)
+VEC poly(96,32,48,96,96,96)
+
+8x8
+........
+........
+.......#
+......##
+......##
+.....###
+....####
+....####
+
+8x16
+........
+........
+........
+........
+........
+.......#
+.......#
+.......#
+......##
+......##
+......##
+.....###
+.....###
+.....###
+....####
+....####
+
+U+LLV13 FLIPX LRV13
+U+ULV13 FLIPY LLV13
+U+URV13 FLIPX ULV13
+
+===================== 1/4-CELL RIGHT-ANGLED TRIANGLES =====================
+
+Corresponding Videotex characters are MS05 MS21 (incomplete series).
+Unicode 13 fails to include these.
+
+U+LR14
+VEC poly(96,64,48,96,96,96)
+
+8x8
+........
+........
+........
+........
+.......#
+......##
+.....###
+....####
+
+U+LL14 FLIPX LR14
+U+UL14 FLIPY LL14
+U+UR14 FLIPX UL14
+
+U+E13E = LR14	LOWER RIGHT VERTICAL 1/4-CELL TRIANGLE
+U+E13F = LL14	LOWER LEFT VERTICAL 1/4-CELL TRIANGLE
+U+E140 = UL14	UPPER LEFT VERTICAL 1/4-CELL TRIANGLE
+U+E141 = UR14	UPPER RIGHT VERTICAL 1/4-CELL TRIANGLE
+
+U+E142 INV LR14	INVERSE LOWER RIGHT VERTICAL 1/4-CELL TRIANGLE
+U+E143 INV LL14	INVERSE LOWER LEFT VERTICAL 1/4-CELL TRIANGLE
+U+E144 INV UL14	INVERSE UPPER LEFT VERTICAL 1/4-CELL TRIANGLE
+U+E145 INV UR14	INVERSE UPPER RIGHT VERTICAL 1/4-CELL TRIANGLE
+
+Mattel Aquarius has rounded quarter corners. They are included here as well.
+
+U+LR14R
+8x8
+........
+........
+........
+........
+......##
+.....###
+....####
+....####
+
+
+U+LL14R FLIPX LR14R
+U+UL14R FLIPY LL14R
+U+UR14R FLIPX UL14R
+
+U+E146 = LR14R
+U+E147 = LL14R
+U+E148 = UL14R
+U+E149 = UR14R
+
+===================== 1/6-CELL RIGHT-ANGLED TRIANGLES =====================
+
+Corresponding Videotex characters are:
+SG01 SG07 SG22 SG28 SG29 SG35 SG43 SG49.
+
+U+LR16
+VEC poly(96,80,48,96,96,96)
+
+8x8
+........
+........
+........
+........
+........
+.......#
+......##
+.....###
+
+8x16
+........
+........
+........
+........
+........
+........
+........
+........
+........
+........
+........
+.......#
+......##
+.....###
+.....###
+....####
+
+U+LL16 FLIPX LR16
+U+UL16 FLIPY LL16
+U+UR16 FLIPX UL16
+
+U+LR16I
+
+8x8
+########
+########
+########
+########
+########
+#######.
+######..
+#####...
+
+8x16
+########
+########
+########
+########
+########
+########
+########
+########
+########
+########
+########
+########
+#######.
+######..
+######..
+#####...
+
+U+LL16I FLIPX LR16I
+U+UL16I FLIPY LL16I
+U+UR16I FLIPX UL16I
+
+================== MIDDLE PIECE OF RIGHT-ANGLED TRIANGLE ==================
+
+Corresponding Videotex characters are: SG12 SG17 SG40 SG54.
+
+A 3-piece right-angle triangle consists of a horizontal 1/3 right triangle,
+one of these, and a reverse 1/3 right triangle.
+
+U+LRMP
+VEC poly(96,32,0,64,0,96,96,96)
+
+8x8
+........
+........
+........
+......##
+..######
+########
+########
+########
+
+8x16
+........
+........
+........
+........
+........
+........
+......##
+.....###
+...#####
+..######
+########
+########
+########
+########
+########
+########
+
+U+LLMP FLIPX LRMP
+U+ULMP FLIPY LLMP
+U+URMP FLIPX ULMP
+
+U+IGNORE
+........................xx
+......................xx
+....................xx
+..................xx
+.................xx
+...............#
+..............##
+.............###
+...........#####
+..........######
+.........#######
+.......x########
+......xx########
+....xxxx########
+...xxxxx########
+.xxxxxxx########
+
+                           #######
+........ ........ .......# #######
+........ ........ .....### #######
+........ ........ ....####
+........ ........ ..######
+........ ........ .#######
+........ ........ ########
+........ ......## ########
+........ .....### ........
+........ ...##### ........
+........ ..###### ........
+........ ######## ........
+.......# ######## ........
+.....### ######## ........
+....#### ######## ........
+..###### ######## ........
+.####### ######## ........
+
+==================== FULL-CELL ISOSCELES TRIANGLES ======================
+
+Corresponding Videotex characters are: MS07 MS10 MS23 MS26
+(incomplete series there).
+
+U+25B2	OK!
+VEC poly(48,0,0,96,96,96)
+
+8x8
+...##...
+...##...
+..####..
+..####..
+.######.
+.######.
+########
+########
+
+U+25B6 OK!
+VEC poly(0,0,96,48,0,96)
+
+8x8
+##......
+####.... 
+######.. 
+######## 
+######## 
+######.. 
+####.... 
+##......
+
+8x16
+#.......
+##......
+###.....
+####....
+#####...
+######..
+#######.
+########
+########
+#######.
+######..
+#####...
+####....
+###.....
+##......
+#.......
+
+U+25BC FLIPY 25B2
+U+25C0 FLIPX 25B6
+
+U+E156 INV 25B2
+U+E157 INV 25B6
+U+E158 INV 25BC
+U+E159 INV 25C0
+
+Hollow versions. Geometry is a little bit different here to allow carving.
+
+U+25B3
+8x8
+...##...
+...##...
+..####..
+.##..##.
+.##..##.
+##....##
+##....##
+########
+
+U+25B7
+8x8
+##......
+####.... 
+##.###.. 
+##...### 
+##.###.. 
+####.... 
+##...... 
+........
+
+8x16
+#.......
+##......
+###.....
+####....
+##.##...
+##..##..
+##...##.
+##....##
+##...##.
+##..##..
+##.##...
+####....
+###.....
+##......
+#.......
+........
+
+U+25BD FLIPY 25B3
+U+25C1 FLIPX 25B7
+
+==================== HALF-CELL ISOSCELES TRIANGLES ======================
+
+Corresponding Videotex characters are:
+SG13 SG14 SG15 SG16 SG41 SG42 SG55 SG56.
+
+Also found in MSX; modelled after MSX.
+
+U+IST12U
+8x8
+........
+........
+........
+........
+...##...
+..####..
+.######.
+########
+
+U+IST12R
+8x8
+#.......
+##......
+###.....
+####....
+####....
+###.....
+##......
+#.......
+
+U+IST12D FLIPY IST12U
+U+IST12L FLIPX IST12R
+
+=================== MIDDLE PIECE OF ISOSCELES TRIANGLE ====================
+
+Corresponding Videotex characters are: MS09 MS11 MS25 MS27
+(incomplete series there).
+
+Unicode forgot these.
+
+U+ISTMPU
+8x8
+...##...
+..####..
+.######.
+########
+########
+########
+########
+########
+
+U+ISTMPR
+8x8
+#####...
+######..
+#######.
+########
+########
+#######.
+######..
+#####...
+
+U+ISTMPD FLIPY ISTMPU
+U+ISTMPL FLIPX ISTMPR
+
+U+E162 = ISTMPU
+U+E163 = ISTMPR
+U+E164 = ISTMPD
+U+E165 = ISTMPL
+
+U+E166 INV ISTMPU
+U+E167 INV ISTMPR
+U+E168 INV ISTMPD
+U+E169 INV ISTMPL
+
+================== OPPOSING ISOSCELES TRIANGLES =======================
+
+Videotex MS12 and MS28. Modelled after MSX.
+
+U+E16A	UPPER AND LOWER TRIANGULAR HALF BLOCK
+8x8
+######## 
+.######. 
+..####.. 
+...##... 
+...##... 
+..####.. 
+.######. 
+######## 
+
+U+E16B	LEFT AND RIGHT TRIANGULAR HALF BLOCK
+8x8
+#......# 
+##....## 
+###..### 
+######## 
+######## 
+###..### 
+##....## 
+#......# 
+
+====== "Smooth mosaics" mapping into Unicode 13 & Old Unscii ========
+
+1/4-cell / not in unicode
+
+1/6-cell / "lower middle left to lower centre" / XX16
+
+U+E14A = LR16	LOWER RIGHT VERTICAL 1/6-CELL TRIANGLE
+U+E14B = LL16	LOWER LEFT VERTICAL 1/6-CELL TRIANGLE
+U+E14C = UL16	UPPER LEFT VERTICAL 1/6-CELL TRIANGLE
+U+E14D = UR16	UPPER RIGHT VERTICAL 1/6-CELL TRIANGLE
+U+E14E = LR16I	INVERSE LOWER RIGHT VERTICAL 1/6-CELL TRIANGLE
+U+E14F = LL16I	INVERSE LOWER LEFT VERTICAL 1/6-CELL TRIANGLE
+U+E150 = UL16I	INVERSE UPPER LEFT VERTICAL 1/6-CELL TRIANGLE
+U+E151 = UR16I	INVERSE UPPER RIGHT VERTICAL 1/6-CELL TRIANGLE
+
+U+1FB3C = E14B
+U+1FB47 = E14A
+U+1FB57 = E14C
+U+1FB62 = E14D
+U+1FB41 = E150
+U+1FB4C = E151
+U+1FB52 = E14F
+U+1FB5D = E14E
+
+1/3-cell horizontal / "lower middle left to lower right" / XXH13
+
+U+1FB3D = LLH13
+U+1FB48 = LRH13
+U+1FB58 = ULH13
+U+1FB63 = URH13
+U+1FB42 INV ULH13
+U+1FB4D INV URH13
+U+1FB53 INV LLH13
+U+1FB5E INV LRH13
+
+U+E12E = 1FB48		LOWER RIGHT HORIZONTAL 1/3-CELL TRIANGLE
+U+E12F = 1FB3D		LOWER LEFT HORIZONTAL 1/3-CELL TRIANGLE
+U+E130 = 1FB58		UPPER LEFT HORIZONTAL 1/3-CELL TRIANGLE
+U+E131 = 1FB63		UPPER RIGHT HORIZONTAL 1/3-CELL TRIANGLE
+
+U+E132 = 1FB5E		INVERSE LOWER RIGHT HORIZONTAL 1/3-CELL TRIANGLE
+U+E133 = 1FB53		INVERSE LOWER LEFT HORIZONTAL 1/3-CELL TRIANGLE
+U+E134 = 1FB42		INVERSE UPPER LEFT HORIZONTAL 1/3-CELL TRIANGLE
+U+E135 = 1FB4D		INVERSE UPPER RIGHT HORIZONTAL 1/3-CELL TRIANGLE
+
+1/2-cell horizontal: not in unicode
+
+2/3-cell / "upper middle left to lower right" / XX23
+
+U+1FB3E = LL23
+U+1FB49 = LR23
+U+1FB59 = UL23
+U+1FB64 = UR23
+U+1FB43 INV UL23
+U+1FB4E INV UR23
+U+1FB54 INV LL23
+U+1FB5F INV LR23
+
+U+E116 = 1FB49		LOWER RIGHT VERTICAL 2/3-CELL TRIANGLE
+U+E117 = 1FB3E		LOWER LEFT VERTICAL 2/3-CELL TRIANGLE
+U+E118 = 1FB59		UPPER LEFT VERTICAL 2/3-CELL TRIANGLE
+U+E119 = 1FB64		UPPER RIGHT VERTICAL 2/3-CELL TRIANGLE
+
+U+E11A = 1FB5F		INVERSE LOWER RIGHT VERTICAL 2/3-CELL TRIANGLE
+U+E11B = 1FB54		INVERSE LOWER LEFT VERTICAL 2/3-CELL TRIANGLE
+U+E11C = 1FB43		INVERSE UPPER LEFT VERTICAL 2/3-CELL TRIANGLE
+U+E11D = 1FB4E		INVERSE UPPER RIGHT VERTICAL 2/3-CELL TRIANGLE
+
+1/3-cell vertical / "upper middle left to lower centre" / XXV13
+
+U+1FB3F = LLV13
+U+1FB4A = LRV13
+U+1FB5A = ULV13
+U+1FB65 = URV13
+U+1FB44 INV ULV13
+U+1FB4F INV URV13
+U+1FB55 INV LLV13
+U+1FB60 INV LRV13
+
+U+E136 = 1FB4A		LOWER RIGHT VERTICAL 1/3-CELL TRIANGLE
+U+E137 = 1FB3F		LOWER LEFT VERTICAL 1/3-CELL TRIANGLE
+U+E138 = 1FB5A		UPPER LEFT VERTICAL 1/3-CELL TRIANGLE
+U+E139 = 1FB65		UPPER RIGHT VERTICAL 1/3-CELL TRIANGLE
+
+U+E13A = 1FB60		INVERSE LOWER RIGHT VERTICAL 1/3-CELL TRIANGLE
+U+E13B = 1FB55		INVERSE LOWER LEFT VERTICAL 1/3-CELL TRIANGLE
+U+E13C = 1FB44		INVERSE UPPER LEFT VERTICAL 1/3-CELL TRIANGLE
+U+E13D = 1FB4F		INVERSE UPPER RIGHT VERTICAL 1/3-CELL TRIANGLE
+
+1/2-cell vertical / "upper left to lower centre" / XXV12
+
+U+1FB40 = LLV12
+U+1FB4B = LRV12
+U+1FB5B = ULV12
+U+1FB66 = URV12
+U+1FB45 = ULV12I
+U+1FB50 = URV12I
+U+1FB56 = LLV12I
+U+1FB61 = LRV12I
+
+U+E126 = 1FB4B		LOWER RIGHT VERTICAL HALF-CELL TRIANGLE
+U+E127 = 1FB40		LOWER LEFT VERTICAL HALF-CELL TRIANGLE
+U+E128 = 1FB5B		UPPER LEFT VERTICAL HALF-CELL TRIANGLE
+U+E129 = 1FB66		UPPER RIGHT VERTICAL HALF-CELL TRIANGLE
+
+U+E12A = 1FB61		INVERSE LOWER RIGHT VERTICAL HALF-CELL TRIANGLE
+U+E12B = 1FB56		INVERSE LOWER LEFT VERTICAL HALF-CELL TRIANGLE
+U+E12C = 1FB45		INVERSE UPPER LEFT VERTICAL HALF-CELL TRIANGLE
+U+E12D = 1FB50		INVERSE UPPER RIGHT VERTICAL HALF-CELL TRIANGLE
+
+"middle piece of right-angled triangle" / lower middle left to upper middle right / XXMP
+
+U+1FB46 = LRMP
+U+1FB51 = LLMP
+U+1FB5C = ULMP
+U+1FB67 = URMP
+
+U+E152 = 1FB46		MIDDLE PIECE OF HORIZONTAL LOWER RIGHT TRIANGLE
+U+E153 = 1FB51		MIDDLE PIECE OF HORIZONTAL LOWER LEFT TRIANGLE
+U+E154 = 1FB5C		MIDDLE PIECE OF HORIZONTAL UPPER LEFT TRIANGLE
+U+E155 = 1FB67		MIDDLE PIECE OF HORIZONTAL UPPER RIGHT TRIANGLE
+
+"half-cell isosceles triangle" / triangular one quarter block
+
+U+1FB6C = IST12R
+U+1FB6D = IST12D
+U+1FB6E = IST12L
+U+1FB6F = IST12U
+U+1FB68 INV IST12R
+U+1FB69 INV IST12D
+U+1FB6A INV IST12L
+U+1FB6B INV IST12U
+
+U+E15A = 1FB6F
+U+E15B = 1FB6C
+U+E15C = 1FB6D
+U+E15D = 1FB6E
+
+U+E15E = 1FB6B
+U+E15F = 1FB68
+U+E160 = 1FB69
+U+E161 = 1FB6A
+
+opposing isosceles triangles
+
+U+1FB9A = E16A
+U+1FB9B = E16B

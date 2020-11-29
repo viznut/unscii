@@ -1,0 +1,1193 @@
+============================ FILL PATTERNS ================================
+
+These are full-block characters that can be used to fill areas with simple
+patterns.
+
+The universally supported ones are the PC shade blocks. However, there are
+also six Unicode characters that come from the Korean standard KS X 1001.
+The standard doesn't specify their use, so Unicode has decided to just
+import the example glyphs inside the squares they were in. However, they
+were probably used as true fill patterns in the original computer fonts.
+WenQuanYi HenZei Mono implements these as true fill patterns. Also, Korean
+Daewoo MSX has two diagonal fill patterns in the Hangul ROM.
+
+We have primarily followed the example of homecomputer 8x8 fonts when
+implementing the fill patterns. These computers also have other fill
+patterns, and we have attempted to cover them as well.
+
+Sabine10 has a large variety of fill pattern characters, including ones that
+can be found in MacPaint and similar graphics software. We have included
+these as well as some of the most popular MacPaint patterns.
+
+Pattern densities have been chosen so that they form a regular series. An
+additional 1/8 raster block has also been included to complete the series.
+
+	0	space (0020)
+	8	1/8 raster (XTND)
+	16	light shade (XTND)
+	20	orthogonal crosshatch (25A6)
+	24	diagonal crosshatch (25A9)
+	32	medium shade (2592) & amstrad/c64 variants.
+	32	horizontal (25A4), vertical (25A5), diagonal (25A7 & 25A8)
+	40	inverted diagonal crosshatch
+	44	inverted orthogonal crosshatch
+	48	dark shade (2592)
+	56	inverted 1/8 raster (XTND)
+	64	full block (2588)
+
+=== REGULAR SHADES ===
+
+Sabine "1/64 shade" is interpreted as a single pixel (in shapes.txt)
+
+U+E190	1/32 SHADE
+8x8
+........	Sabine. 2/64. Fill pattern in MacPaint.
+........
+......#.
+........
+........
+........
+..#.....
+........
+
+8x16
+........
+........
+......#.
+........
+........
+........
+..#.....
+........
+........
+........
+......#.
+........
+........
+........
+..#.....
+........
+
+U+E191	1/16 SHADE
+8x8
+..#.....	Sabine, readjusted to match PC char. 4/64. Fill in MacPaint.
+........
+......#.
+........
+..#.....
+........
+......#.
+........
+
+8x16
+..#.....
+........
+......#.
+........
+..#.....
+........
+......#.
+........
+..#.....
+........
+......#.
+........
+..#.....
+........
+......#.
+........
+
+U+E192	1/8 SHADE / VERY LIGHT SHADE
+8x8
+..#...#.	Sabine, readjusted to match PC patterns.
+........	Density 8/64, pattern size 4x2.
+#...#... 	Fill pattern in MacPaint.
+........
+..#...#.
+........
+#...#... 
+........
+
+8x16
+..#...#.
+........
+#...#...
+........
+..#...#.
+........
+#...#... 
+........
+..#...#.
+........
+#...#...
+........
+..#...#.
+........
+#...#... 
+........
+
+U+E193	3/16 SHADE
+8x8
+#...#...	Sabine. 12/64
+........
+.#.#.#.#
+........
+..#...#.
+........
+.#.#.#.#
+........
+
+8x16
+#...#...
+........
+.#.#.#.#
+........
+..#...#.
+........
+.#.#.#.#
+........
+#...#...
+........
+.#.#.#.#
+........
+..#...#.
+........
+.#.#.#.#
+........
+
+U+2591	LIGHT SHADE
+8x8
+..#...#.	PC. Density 16/64.
+#...#... 	Sabine pattern has a different offset.
+..#...#. 	Present as a fill pattern in Mac/GeoPaint.
+#...#... 
+..#...#. 
+#...#... 
+..#...#. 
+#...#... 
+
+8x16
+..#...#.
+#...#...
+..#...#.
+#...#... 
+..#...#. 
+#...#... 
+..#...#. 
+#...#... 
+..#...#.
+#...#...
+..#...#.
+#...#... 
+..#...#. 
+#...#... 
+..#...#. 
+#...#... 
+
+U+2592	MEDIUM SHADE
+8x8
+#.#.#.#.	Amstrad CPC / Commodore VIC-20. Density 32/64.
+.#.#.#.#	PC uses the inversion (top-level pixel is zero).
+#.#.#.#. 	We've chosen this variant because Amstrad & Sharp
+.#.#.#.# 	character sets have a lot of medium-shaded characters
+#.#.#.#. 	and we need to match the pattern to them.
+.#.#.#.#	Common fill pattern in paint software.
+#.#.#.#. 
+.#.#.#.# 
+
+8x16
+#.#.#.#.
+.#.#.#.#
+#.#.#.#.
+.#.#.#.#
+#.#.#.#.
+.#.#.#.#
+#.#.#.#. 
+.#.#.#.# 
+#.#.#.#.
+.#.#.#.#
+#.#.#.#.
+.#.#.#.#
+#.#.#.#.
+.#.#.#.#
+#.#.#.#. 
+.#.#.#.# 
+
+U+1FB90 INV 2592
+U+XTND = 1FB90
+
+U+2593 INV 2591		48/64 shade
+
+U+E194	56/64 SHADE
+8x8
+########	Sabine. 56/64
+#.###.##
+########
+###.###.
+########
+#.###.##
+########
+###.###.
+
+8x16
+########
+#.###.##
+########
+###.###.
+########
+#.###.##
+########
+###.###.
+########
+#.###.##
+########
+###.###.
+########
+#.###.##
+########
+###.###.
+
+U+E195	60/64 SHADE
+8x8
+#.######	Sabine. 60/64
+########
+#####.##
+########
+#.######
+########
+#####.##
+########
+
+8x16
+#.######
+########
+#####.##
+########
+#.######
+########
+#####.##
+########
+#.######
+########
+#####.##
+########
+#.######
+########
+#####.##
+########
+
+U+E196	62/64 SHADE
+8x8
+########	Sabine. 62/64
+########
+##.#####
+########
+########
+########
+######.#
+########
+
+8x16
+########
+########
+##.#####
+########
+########
+########
+######.#
+########
+########
+########
+##.#####
+########
+########
+########
+######.#
+########
+
+U+E197	ORTHOGONAL LIGHT SHADE
+8x8
+#.#.#.#.	16/64. Sabine. Also a Macpaint texture.
+........
+#.#.#.#.
+........
+#.#.#.#.
+........
+#.#.#.#.
+........
+
+8x16
+#.#.#.#.
+........
+#.#.#.#.
+........
+#.#.#.#.
+........
+#.#.#.#.
+........
+#.#.#.#.
+........
+#.#.#.#.
+........
+#.#.#.#.
+........
+#.#.#.#.
+........
+
+U+E198	ORTHOGONAL 1/16 SHADE
+8x8
+........	4/64. Sabine, centered. A
+.#...#..
+........
+........
+........
+.#...#..
+........
+........
+
+8x16
+........
+.#...#..
+........
+........
+........
+.#...#..
+........
+........
+........
+.#...#..
+........
+........
+........
+.#...#..
+........
+........
+
+=== IRREGULAR SHADES ===
+
+U+E83D	VERY LIGHT IRREGULAR SHADE
+8x8
+......#.	MacPaint, adjusted with Sharp MZ 9/64-density pattern. 
+..#..... 	Irregular, density 8/64.
+.......#	Somewhat similar characters exist in
+....#... 	Sharp MZ (density 9/64) and Sabine10 (density 7/64).
+.#......  	
+.....#..   
+#.......  
+...#.... 
+
+U+E83E	IRREGULAR 10/64 SHADE
+8x8
+....#..#	Mattel Aquarius. Irregular, density 10/64.
+..#.....	-- mapped to 3/16.
+.....#..
+#.......
+...#...#
+.#......
+....#...
+......#.
+
+U+E83F	IRREGULAR 11/64 SHADE
+8x8
+#...#... 	Sharp MZ. Irregular, density 11/64.
+......#. 	-- mapped to 3/16.
+.#...... 
+........ 
+#...#... 
+.#.....# 
+........ 
+#..#...# 
+
+=== CHECKERBOARD PATTERNS ===
+
+U+E199	CHECKERBOARD PATTERN
+8x8
+##..##.. 	C-64 / Amstrad CPC. Density 32/64, with 2x2 detail.
+##..##.. 	MSX has the shape inverted.
+..##..## 	Found as fill pattern in MtPaint.
+..##..## 
+##..##.. 
+##..##.. 
+..##..## 
+..##..## 
+
+8x16
+##..##.. 
+##..##.. 
+..##..## 
+..##..## 
+##..##.. 
+##..##.. 
+..##..## 
+..##..## 
+##..##.. 
+##..##.. 
+..##..## 
+..##..## 
+##..##.. 
+##..##.. 
+..##..## 
+..##..## 
+
+U+1FB95 = E199
+U+1FB96 INV E199
+U+XTND = 1FB96
+
+U+E840	MEDIUM SHADE IN COARSE PIXELS
+8x8
+##..##..	Amstrad CPC. Density 32/64, with 2x1 detail.
+..##..## 
+##..##.. 
+..##..## 
+##..##.. 
+..##..## 
+##..##.. 
+..##..##
+
+8x16
+##..##..
+..##..## 
+##..##.. 
+..##..## 
+##..##.. 
+..##..## 
+##..##.. 
+..##..##
+##..##..
+..##..## 
+##..##.. 
+..##..## 
+##..##.. 
+..##..## 
+##..##.. 
+..##..##
+
+=== LINE-BASED FILL PATTERNS ===
+
+Connectivity still needs some more consideration?
+Most are aligned so that they set up symmetrically around line chars.
+
+U+25A4	SQUARE WITH HORIZONTAL FILL
+8x8
+########	Sharp MZ, Colour Genie.
+........ 
+######## 
+........ 
+######## 
+........ 
+######## 
+........ 
+
+8x16
+########	No micro-level sync needed, therefore dupfill
+........ 
+######## 
+........ 
+######## 
+........ 
+######## 
+........ 
+########
+........ 
+######## 
+........ 
+######## 
+........ 
+######## 
+........ 
+
+U+25A5	SQUARE WITH VERTICAL FILL
+8x8
+#.#.#.#.	Sharp MZ, alignment normalized (1 pixel leftward)
+#.#.#.#. 
+#.#.#.#. 
+#.#.#.#. 
+#.#.#.#. 
+#.#.#.#. 
+#.#.#.#. 
+#.#.#.#. 
+
+U+E841	SPARSE HORIZONTAL FILL
+8x8
+........ 	Sharp MZ (combines as crosshatch). Realigned.
+######## 	Correct positioning (symmetrically around fourth row)
+........ 	Sabine shape has different Y offset (by 1 pixel).
+........ 
+........ 
+########
+........ 
+........ 
+
+8x16
+........
+########
+........
+........ 
+........ 
+######## 
+........ 
+........ 
+........
+########
+........
+........ 
+........ 
+######## 
+........ 
+........ 
+
+U+1FB97	HEAVY HORIZONTAL FILL
+8x8
+........ 	TRS-80. 
+######## 	Can't follow exact pixel matrix, therefore E841 thickened.
+########
+........ 
+........ 
+######## 
+######## 
+........
+8x16
+........
+########
+########
+........ 
+........ 
+######## 
+######## 
+........
+........
+########
+########
+........ 
+........ 
+######## 
+######## 
+........
+U+XTND2 = 1FB97
+
+The pattern is macro enough to be used as non-fill, therefore no 8x16.
+
+U+E842	SPARSE VERTICAL FILL
+8x8
+.#...#.. 	Sharp MZ (combines as crosshatch)
+.#...#.. 	Correct positioning (symmetrically around fourth column)
+.#...#.. 	Sabine shape has different X offset (by 2 pixels).
+.#...#.. 
+.#...#.. 
+.#...#.. 
+.#...#.. 
+.#...#.. 
+
+U+25A6	SQUARE WITH ORTHOGONAL CROSSHATCH FILL
+8x8
+.#...#.. 	Sharp MZ. Combination of Sharp X and Y line patterns.
+######## 	Density 8/16, pattern 4x4.
+.#...#.. 	Sabine shape has a different vertical position (by 1 pixel).
+.#...#.. 	Fill pattern in Mac/GeoPaint.
+.#...#.. 
+######## 
+.#...#.. 
+.#...#.. 
+
+8x16
+.#...#.. 
+######## 
+.#...#.. 
+.#...#.. 
+.#...#.. 
+######## 
+.#...#.. 
+.#...#.. 
+.#...#.. 
+######## 
+.#...#.. 
+.#...#.. 
+.#...#.. 
+######## 
+.#...#.. 
+.#...#.. 
+
+U+E843	SHADED ORTHOGONAL CROSSHATCH FILL
+8x8
+........
+.#.#.#.#	12/64
+........	Sabine, realigned to match 25A6.
+.#...#..	Fill pattern nowhere?
+........
+.#.#.#.#
+........
+.#...#..
+
+8x16
+........
+.#.#.#.#
+........
+.#...#..
+........
+.#.#.#.#
+........
+.#...#..
+........
+.#.#.#.#
+........
+.#...#..
+........
+.#.#.#.#
+........
+.#...#..
+
+U+E844	SPARSE ORTHOGONAL CROSSHATCH FILL
+8x8
+.....#..	Sharp MZ. Chosen because MZ also has connecting line pieces.
+.....#..	Sabine shape has a different horizontal position (by 1 pixel).
+.....#..	Fill pattern in Mac/GeoPaint.
+.....#..
+.....#..
+.....#..
+########
+.....#..
+
+8x16
+.....#..
+.....#..
+.....#..
+.....#..
+.....#..
+.....#..
+########
+.....#..
+.....#..
+.....#..
+.....#..
+.....#..
+.....#..
+.....#..
+########
+.....#..
+
+U+25A8	SQUARE WITH UPPER RIGHT TO LOWER LEFT FILL
+8x8
+...#...# 	Sharp MZ / MSX / Mac/MtPaint.
+..#...#. 	The 1:3 pattern seems to be the most common in 8x8 fonts.
+.#...#.. 	We have therefore chosen it as the main representative.
+#...#... 	Aligns well with ortohogonal lines at 4th row and column.
+...#...# 	Density 1/4 as in the Daewoo MSX Hangul block.
+..#...#. 
+.#...#.. 
+#...#... 
+
+U+E19A	HEAVY UPPER RIGHT TO LOWER LEFT FILL
+8x8
+..##..## 	Resembles the PETSCII patterns but realigned to
+.##..##. 	match with the orthogonal lines.
+##..##.. 
+#..##..# 	Not extensively used in art because only found
+..##..## 	in the "text" character set. Therefore not
+.##..##. 	candidate for the default pattern.
+##..##.. 	Not a common pattern in paint software either.
+#..##..#
+
+U+1FB99 = E19A
+
+U+25A7	SQUARE WITH UPPER LEFT TO LOWER RIGHT FILL
+8x8
+#...#... 	U+25A6 mirrored. MSX. Not found in Sharp MZ.
+.#...#.. 	
+..#...#. 
+...#...# 
+#...#... 
+.#...#.. 
+..#...#. 
+...#...# 
+
+U+E19B	HEAVY UPPER LEFT TO LOWER RIGHT FILL
+8x8
+##..##.. 
+.##..##. 
+..##..## 
+#..##..# 
+##..##.. 	
+.##..##. 
+..##..## 
+#..##..# 
+
+U+1FB98 = E19B
+
+U+25A9	SQUARE WITH DIAGONAL CROSSHATCH FILL
+8x8
+#.#.#.#.	Sabine.
+.#...#..	Density 24/64, pattern 4x4.
+#.#.#.#.	Found as a fill pattern in Gem/MtPaint.
+...#...#
+#.#.#.#.	Won't align well with diagonal line fills :(
+.#...#..
+#.#.#.#.
+...#...#
+
+U+E845	SPARSE DIAGONAL CROSSHATCH FILL
+8x8
+.#.....#
+#.......
+.#.....#
+..#...#.
+...#.#..
+....#...
+...#.#..
+..#...#.
+
+=== COMPLEX FILL PATTERNS ===
+
+Complex fill patterns found in MacPaint and Sabine:
+
+U+E846	BRICK FILL
+8x8
+.......#	Sabine. Mac/Geo/MtPaint have identical fill pattern.
+.......#
+########
+...#....
+...#....
+...#....
+########
+.......#
+
+8x16
+.......#
+.......#
+########
+...#....
+...#....
+...#....
+########
+.......#
+.......#
+.......#
+########
+...#....
+...#....
+...#....
+########
+.......#
+
+U+E847	MISC FILL PATTERN 1
+8x8
+.#.....#	Sabine. Mac/Geo/MtPaint have an identical fill pattern.
+#.#...#.	Replaceable with a centered shape. Already have it?
+.#.#.#.#
+#.#...#.
+.#.....#
+#.......
+........
+#.......
+
+8x16
+.#.....#
+#.#...#.
+.#.#.#.#
+#.#...#.
+.#.....#
+#.......
+........
+#.......
+.#.....#
+#.#...#.
+.#.#.#.#
+#.#...#.
+.#.....#
+#.......
+........
+#.......
+
+U+E848	MISC FILL PATTERN 2
+8x8
+....#...	Sabine. Mac/Geo/Gem/MtPaint have an identical fill pattern.
+....#...
+#.#.#.#.
+.#.....#
+#.......
+#.......
+#.#.#.#.
+...#.#..
+
+8x16
+....#...
+....#...
+#.#.#.#.
+.#.....#
+#.......
+#.......
+#.#.#.#.
+...#.#..
+....#...
+....#...
+#.#.#.#.
+.#.....#
+#.......
+#.......
+#.#.#.#.
+...#.#..
+
+U+E849	MISC FILL PATTERN 3
+8x8
+###...##	Sabine. Mac/Geo/Gem/MtPaint have an identical fill pattern.
+###...##
+##.###.#
+..#..##.
+..#####.
+..#####.
+##.###.#
+.##...#.
+
+8x16
+###...##
+###...##
+##.###.#
+..#..##.
+..#####.
+..#####.
+##.###.#
+.##...#.
+###...##
+###...##
+##.###.#
+..#..##.
+..#####.
+..#####.
+##.###.#
+.##...#.
+
+U+E84A	MISC FILL PATTERN 4
+8x8
+#...#...	Sabine. MacPaint has an identical fill pattern.
+.#.#....
+..#...#.
+........
+#.#.#.#.
+........
+..#...#.
+.....#.#
+
+8x16
+#...#...
+.#.#....
+..#...#.
+........
+#.#.#.#.
+........
+..#...#.
+.....#.#
+#...#...
+.#.#....
+..#...#.
+........
+#.#.#.#.
+........
+..#...#.
+.....#.#
+
+U+E84B	MISC FILL PATTERN 5
+8x8
+.#......	Sabine. MacPaint has an identical fill pattern.
+........
+.#...#..
+........
+.#......
+........
+.#.#.#.#
+........
+
+8x16
+.#......
+........
+.#...#..
+........
+.#......
+........
+.#.#.#.#
+........
+.#......
+........
+.#...#..
+........
+.#......
+........
+.#.#.#.#
+........
+
+U+E84C	MISC FILL PATTERN 6
+8x8
+#.......	Sabine. MacPaint has an identical fill pattern.
+........
+....#...
+.....#..
+......#.
+........
+..#.....
+.#......
+
+8x16
+#.......
+........
+....#...
+.....#..
+......#.
+........
+..#.....
+.#......
+#.......
+........
+....#...
+.....#..
+......#.
+........
+..#.....
+.#......
+
+U+E84D	MISC FILL PATTERN 7
+8x8
+#.#.#.#.	Sabine. MacPaint fill pattern (roof)
+########
+......#.
+.....#..
+....#...
+...#....
+..#.....
+.#.#.#..
+
+8x16
+#.#.#.#.
+########
+......#.
+.....#..
+....#...
+...#....
+..#.....
+.#.#.#..
+#.#.#.#.
+########
+......#.
+.....#..
+....#...
+...#....
+..#.....
+.#.#.#..
+
+U+E84E	MISC FILL PATTERN 8
+8x8
+..##.##.
+..##....
+......##
+.##...##
+.##.##..
+....##..
+##......
+##...##.
+
+8x16
+..##.##.
+..##....
+......##
+.##...##
+.##.##..
+....##..
+##......
+##...##.
+..##.##.
+..##....
+......##
+.##...##
+.##.##..
+....##..
+##......
+##...##.
+
+U+E84F	MISC FILL PATTERN 9
+8x8
+..#...#.	Sabine. MacPaint fill pattern.
+..#...#.
+..#...#.
+.#.....#
+#.......
+....#...
+...#.#..
+..#...#.
+
+8x16
+..#...#.
+..#...#.
+..#...#.
+.#.....#
+#.......
+....#...
+...#.#..
+..#...#.
+..#...#.
+..#...#.
+..#...#.
+.#.....#
+#.......
+....#...
+...#.#..
+..#...#.
+
+U+E850	MISC FILL PATTERN 10
+8x8
+..#...#.	Sabine. MacPaint fill pattern.
+.#.....#	
+#.......
+#.......
+#.......
+.#.....#
+..#...#.
+#..###..
+
+8x16
+..#...#.
+.#.....#	
+#.......
+#.......
+#.......
+.#.....#
+..#...#.
+#..###..
+..#...#.
+.#.....#	
+#.......
+#.......
+#.......
+.#.....#
+..#...#.
+#..###..
+
+Fill patterns only found in Sabine:
+
+U+EC00	MISC FILL PATTERN 11
+8x8
+.....##.	Sabine. Can't find this fill pattern in paint software.
+....#..#
+#..#....
+.##.....
+.....##.
+....#..#
+#..#....
+.##.....
+
+8x16
+.....##.
+....#..#
+#..#....
+.##.....
+.....##.
+....#..#
+#..#....
+.##.....
+.....##.
+....#..#
+#..#....
+.##.....
+.....##.
+....#..#
+#..#....
+.##.....
+
+U+EC01	MISC FILL PATTERN 12
+8x8
+.#..###.	Not in MacPaint.
+.###..#.
+####..##
+..######
+..#..###
+###..#..
+######..
+##..####
+
+8x16
+.#..###.
+.###..#.
+####..##
+..######
+..#..###
+###..#..
+######..
+##..####
+.#..###.
+.###..#.
+####..##
+..######
+..#..###
+###..#..
+######..
+##..####
+
+U+EC02	MISC FILL PATTERN 13
+8x8
+#.#..#.# 	Sharp MZ. Density 20/64, pattern size 4x4.
+.#....#. 	Map the Sharp MZ character into this?
+#.#..#.# 
+........ 
+........ 
+#.#..#.# 
+.#....#. 
+#.#..#.# 
+
+8x16
+#.#..#.# 
+.#....#. 
+#.#..#.# 
+........ 
+........ 
+#.#..#.# 
+.#....#. 
+#.#..#.# 
+#.#..#.# 
+.#....#. 
+#.#..#.# 
+........ 
+........ 
+#.#..#.# 
+.#....#. 
+#.#..#.# 
+
+Some non-Unicode irregular fill patterns or "explosions" are also included.
+
+U+EC03	BEGINNING EXPLOSION
+8x8
+........ 	Sharp MZ. 16/64
+.#.#..#. 
+..##.#.. 
+.....##. 
+.##..... 
+..#.##.. 
+.#..#.#. 
+........ 
+U+1F4AD DBLW EC03
+
+U+EC04	BEGINNING EXPLOSION 2
+........	Mattel Aquarius. 16/64.
+...#....
+..#.##..
+..###.#.
+.#.###..
+..##.#..
+.....#..
+........
+
+U+EC05	MIDDLE EXPLOSION
+.#.#..#.	Mattel Aquarius. 24/64
+.#...#..
+..#.##.#
+##...#..
+...#...#
+#.##.#..
+..#...##
+.#..#.#.
+
+U+EC06	ENDING EXPLOSION
+8x8
+#..#...# 	Sharp MZ. 16/64
+.#.#..#. 
+........ 
+......## 
+##...... 
+........ 
+.#..#.#. 
+#...#..# 

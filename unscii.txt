@@ -1,0 +1,308 @@
+============================== Introduction ================================
+
+Unscii is a set of bitmapped Unicode fonts heavily based on the system fonts
+of classic microcomputers. It attempts to support character cell art as
+perfectly as possible while being suitable for terminal and programming use.
+
+Everything made by me (viznut) is in the Public Domain.
+
+The first source font, Fixedsys Excelsior, is also in the Public Domain.
+
+Those pieces that come from the Unifont project (unifont.hex, hex2bdf.pl)
+are under GPL. For this reason, unscii-16-full also falls under GPL.
+
+http://www.pelulamu.net/unscii/
+
+============================= Reference fonts ==============================
+
+Like many popular system fonts, Unscii uses a 2-pixel-wide line.
+The following fonts are used for reference when creating the 8x8 variant:
+- Amiga Topaz-8
+- Amstrad CPC
+- Atari 8-bit
+- Atari Arcade font (the iconic one)
+- Atari ST
+- BBC Micro graphics mode font
+- Commodore 64
+- IBM PC CGA font
+
+There is a surprisingly wide consensus about many glyphs in these fonts,
+which has made it easy to select neutral shapes. In some cases, a slightly
+less neutral variant has been chosen in order to enhance clarity or ascii
+art compatibility.
+
+The 8x16 variant is more or less derived from 8x8 by using a set of rules.
+The following fonts are used for additional reference:
+- Classic bitmap fonts:
+  - Windows Fixedsys 8x15 (and its modern successor, Fixedsys Excelsior)
+  - IBM PC VGA 8x16 (and its modern successor, U_VGA)
+  - X Window System fonts 8x13B and 9x15B
+  - Classic Macintosh Monaco 12-point bold
+  - Digital VT420 80x24-mode font (10x16)
+- Modern vector fonts:
+  - DejaVu Sans Mono
+  - Lucida Console
+  - Inconsolata
+
+There is also an 8x8 variant with thin-line alphanumerics. Those shapes are
+based on the following system fonts:
+- Apple II
+- Commodore PET
+- Sharp MZ
+- Sinclair ZX Spectrum
+- MSX
+
+============================ Pseudographics ===============================
+
+Unscii is also an excursion into the pseudographic characters of various
+character sets. Many of these characters have no Unicode coverage at all.
+
+The following character sets have been succesfully scavenged for
+non-Unicode-covered characters:
+- Amstrad CPC
+- Apple Sabine10
+- Atari ST
+- ATSCII (Atari 8-bit)
+- EACA Colour Genie
+- Mattel Aquarius
+- PETSCII (Commodore 8-bit)
+- Sharp MZ
+- Teletext
+- TRS-80
+- Videotex
+- VT100
+
+Characters without Unicode codepoints have been mapped to the Private Use
+Area (U+E000..U+FFFF). The current mapping is subject to change before the
+final version is released.
+
+Supporting existing character cell art well is not possible with a single
+mapping of Unicode codepoints into glyphs. For example, Big-5 art uses
+double-width graphics characters that are single-width in standard Unicode
+terminals. Also, there are vast differences in aspect ratios between
+systems. Unscii therefore provides compatibility glyphs in order to simulate
+square pseudographic characters in oblong environments and vice versa.
+
+============================== Source files ================================
+
+The font generator (assemble.pl) reads this file as the root source file.
+
+SET fontsizes 8x8,8x16
+
+INCLUDE punctuation.txt
+	.,:;… !?¡¿‼ -­–—_¯ "“”„‴ '‘`’‚ «» ‹› () [] {}
+
+INCLUDE numbers.txt
+	0123456789 ° ⁰¹²³⁴⁵⁶⁷⁸⁹ⁿ %‰‱ ¼½¾
+
+INCLUDE math.txt
+	+±÷ *×· /\⁄ ¬ <>≤≥=≠≡≈ √ ∟⌐¬ ƒ∂ ∞ ∩ ∫⌠⌡
+
+INCLUDE textsymbols.txt
+	&@#§¶ $¢£¤¥€₧ |‖¦ ©®℗§™℠ †‡ ªº
+
+INCLUDE latin.txt
+	ABCDEFGHIJKLMNOPQRSTUVWXYZ etc
+	abcdefghijklmnopqrstuvwxyz etc
+	- Also shrunken variants of letters for diacritic use.
+
+INCLUDE greek.txt
+	- Greek letters.
+
+INCLUDE cyrillic.txt
+	- Cyrillic letters.
+	- Letters that look identical to Latin or Greek ones are duplicated
+	  from there.
+
+INCLUDE hebrew.txt
+	- Atari ST has Hebrew characters.
+
+INCLUDE arabic.txt
+	- Al-Alamiah MSX has 8x8 Arabic letters.
+	- 8x16 is based on other fonts.
+
+INCLUDE katakana.txt
+	- Many MSX machines have Katakana even in the most rudimentary
+	  character sets.
+
+INCLUDE runes.txt
+	- Anglo-saxon runes as represented in classic games.
+	- Extended into elder and younger Futhark in the same style.
+
+INCLUDE wideascii.txt
+	- Double-width ASCII characters as in CJK character sets.
+	- Based on the simple x-doubling of normal ascii chars, some
+	  smoothing.
+
+INCLUDE diacritics.txt
+	- Diacritical marks.
+
+INCLUDE PATCH
+	This includes the selected patchfile.
+	The standard distribution will include three 8x8 font patches:
+	- font-thin.txt: based on classic computer fonts with 1x1 line.
+	- font-deviant.txt: based on stranger variants from classic fonts.
+	- font-mcr.txt: based on futuristic games.
+	- font-fantasy.txt: based on fantasy games.
+
+INCLUDE diacrcomb.txt
+	- Latin, Cyrillic and Greek letters that straightforwardly combine
+	  diacritical marks with base characters.
+
+INCLUDE symbols.txt
+	- Card suits, gender symbols, logos and other non-textual symbols.
+	  (no XTND here)
+
+INCLUDE arrows.txt
+	- Arrows and arrowheads.
+	  (no XTND here)
+
+INCLUDE divisions.txt
+	- Cells divided in orthogonal, diagnonal and sloped ways.
+	  Some of them also in shades.
+	  (has XTND)
+
+INCLUDE lines.txt
+	- Unicode: Orthogonal and diagonal lines in different styles.
+	- Non-unicode: Offset and cornered lines.
+	  (has XTND)
+
+INCLUDE shapes.txt
+	- Rectangles, circles, diamonds, triangles, stars etc.
+	  (has XTND)
+
+INCLUDE grids.txt
+	- Unicode: 2x2 grid mosaics and 2x4 Braille symbols.
+	- Teletext: 2x3 grid mosaics with combined and separated pixels.
+
+INCLUDE patterns.txt
+	- Regular shades, orthogonal and diagonal line fills and other
+	  patterns. Unicode and non-unicode.
+
+INCLUDE pictures.txt
+	- Miscellaneous depictive characters found in character sets:
+	  fruits, video game characters, etc.
+
+INCLUDE ctrl.txt
+	- Glyphs for ascii/dec control character ranges.
+
+=========================== Other files ===================================
+
+assemble.pl: Compiles the .txt source files into .hex files.
+
+merge-otherfonts.pl: Used when generating unscii-16-full.hex.
+  Merges Unscii with Fixedsys Excelsior and Unifont by importing
+  missing glyphs from them.
+
+doubleheight.pl: Doubles the line height of a .hex file.
+
+hex2bdf.pl: Converts a .hex file into a bdf font (this is from Unifont).
+
+fsex-adapted.hex: Fixedsys Excelsior autoadapted to Unscii metrics.
+  Adapter script not included.
+
+unifont.hex: GNU Unifont.
+
+vectorize.c: Converts a .hex file into a trivially vectorized svg font
+
+makevecfonts.ff: A Fontforge script to generate .ttf, .otf and .woff.
+
+bm2uns.c: A tool to convert a bitmap picture into unscii art.
+
+makeconverterdata.pl: Generates conversion tables for bm2uns.
+
+============================ 8x8 to 8x16 ==================================
+
+Rule-of-thumb conventions for converting from 8x8 to 8x16:
+- Do not double the vertical thickness of lines. 2x1 lines remain 2x1,
+  2x2 lines remain 2x2.
+- Do not alter horizontal metrics. In most cases, selective
+  doubling/tripling of rows should be enough.
+- Non-textual characters basically just undergo plain 2x vertical scaling
+  (apart from the above-mentioned line thickness considerations).
+- Textual characters:
+  - If in 7x7 box (capital letter) -> 7x11, leave 2 rows above the box.
+    - The 2 rows above the box are for diacritical marks.
+    - "Top-oriented" punctuation marks start 1 row above the capital box.
+      This also applies to superscripts.
+    - Brackets extend 1 row above and 1 row below the capital box.
+      This also applies to subscripts.
+  - If in 7x5 box (small letter) -> 7x7, leave 6 rows above the box.
+    - 4 rows above the box are for the ascender.
+  - The 3 rows below the box are for the descender.
+  - If the glyph was compressed for 8x8, undo the compression in the 8x16
+    variant.
+  - Do not add new details such as serifs or curve tips.
+  - 2x2 dots become 2x3. 1-pixel gaps between the dot and the body do not
+    double.
+  - 45-degree lines remain at 45 degrees. If necessary, extend the line
+    horizontally or vertically. Use ~equal extension length on both sides.
+- If a textual character has prominent non-textual use (ascii art), find a
+  compromise.
+- Valid reasons for deviation:
+  - Contrast (I, 1 and l need to differ)
+  - Preventing ugliness
+  - Artistic connectivity
+  - Normativity
+- When in doubt, consult the reference fonts.
+- Keep capital letters mostly within a 6x11 box, 7x11 if really needed.
+- For small letters, the body is 6x7 (7x7 if really needed).
+  3 lines for descender, 4 lines for ascender.
+- Vertical thickness of lines does not double.
+- Diagonal lines remain diagonal only if artistic connectivity or esthetic
+  considerations require it.
+
+Comparison of metrics for the reference bitmap fonts:
+
+Title	Cell  Capsbox Letters    Symbols UppIdx
+-----	----  ------- --------   ------- ------
+8x8     8x8   7x7     0+(2+5)+1  0+7+1   0+5x5
+Unscii  8x16  7x11    2+(4+7)+3  3+9+4   1+5x7
+VGA	8x16  8x10    2+(3+7)+4  3+9+4   1+5x6
+Windows 8x15  7x9     2+(2+7)+4  2+9+4   2+4x5
+Monaco  8x13  6x9     1+(3+6)+3  N/A     ???
+X-8x13B 8x13  7x10    1+(3+7)+2  N/A     1+4x6
+X-9x15B 9x15  8x10    1+(3+7)+4  N/A     0+5x7
+Unifont 8x16  ?x11    3+(3+8)+2  5+9+2   2+?x7
+
+========================== Test material ==================================
+
+A picture containing nearly all Unicode 13.0 graphics characters and some
+more:
+
+          ╎┆┊  ╱🭽▔🭾╲    🮲🮳       🮸🮀🮵🮶🮀🮁🮁🮀🮼🯁🯂🯃      ▵        ↑        ◬
+ ╶─╴╺━╸ ═ ╎┆┊ ⎹ ⎸▣⎹ ⎸  ▝▛▀▜▘ 🯲🯷🯶                   △    ▴   ╽       ◭⬘◮
+╷┌┬┐┍┯┑╒╤╕╏┇┋ 🮷 🭼▁🭿 ⎸  ▚▌█▐▞ 🯹🯵🯱 🯰     ▁▂▃▄▅▆▇█ ◃◅◁╳▷▻▹ ▲ ←╼╋╾→     ◩⬒⬔
+│├┼┤┝┿┥╞╪╡╏┇┋ ⎹╱ ╳ ╲⎸  ▗▙▄▟▖ 🯴🯳🯸      █🮆🮅🮄▀🮃🮂▔⎹    ▽ ◂◄◀🮽▶►▸╿  ⮝   ⬖◧◫◨⬗
+╵└┴┘┕┷┙╘╧╛┞╀┦  ▔▔▔▔▔   🬑🬜🬰🬪🬟      🮞🮟 ▕▉ ◞◡◯◡ ◎🭵    ▿    ▼   ↓ ⮜◈⮞   ⬕⬓◪  
+╻┎┰┒┏┳┓  ┭╆╈╅┮╍╍╌╌  🬥🬦🬍🬲🬵🬹🬱🬷🬌🬓🬙   🮝🮜 🮇▊◝◠◯◉◯◡◟🭴         ▾      ⮟   ◕ ⬙ ◔
+┃┠╂┨┣╋┫ ╺┽╊◙╉┾┅┅┄┄  🬔🬡🬖🬻🬞🬭🬏🬺🬢🬒🬧      🮈▋◍ ◠◯◠◜ 🭳  ◿◺                     
+╹┖┸┚┗┻┛ ━┵╄╇╃┶┉┉┈┈  🬃🬤🬫🬴🬠🬋🬐🬸🬛🬗🬇   🭇🬼 ▐▌ ◌🮣🮢 🮦 🭲  ◹◸ 🭯 🮀⚞⚟🮀  🯊     ◙◛◶─◵
+ ╓╥╖   ╔╦╗┢╁┪ ┟┱┲┧  🬣🬯🬈🬬🬁🬂🬀🬝🬅🬮🬘   🭢🭗 🮉▍ 🮤🮪🮫🮥🮧 🭱  🭯 🭮◙🭬╭──╮⎫🮻⎧    ◘◙│◲┼◱╭◒╮
+║╟╫╢🮐🮒🮐╠╬╣ ╹┃ ┡┹┺┩  🬳🬉🬩🬕🬊🬎🬆🬨🬚🬄🬶   🭊🬿 🮊▎ 🮩🮬🮭🮨  🭰 ◢🭫◣ 🮚 │ ▢ ⎮🏎⎪    ◙◚◷┼◴│◑╋◐
+ ╙╨╜🮔 🮓╚╩╝   🯆 🯅  🯇     🮣🮢   🯉  🯈 🭥🭚 🮋▏🮮 🮡🮠   ⎸🭮🭪◆🭨🮛🮿🭬╰─🮯─╯⎬⎯⎨       ◳─◰╰◓╯    
+  ░░🮐🮑🮐▓▓██🮗🮗▤▤▥▥▦▦▩▩▧▧🮘🮘🮙🮙▨▨🮕🮕🮖🮖 🭋🭀 █▁🭻🭺🭹🭸🭷🭶▔  ◥🭩◤ 🭭      ⎮⯊⎪ ▱▰    ▭▬
+  ░░▒🮎▒▓▓██🮗🮗▤▤▥▥▦▦▩▩▧▧🮘🮘🮙🮙▨▨🮕🮕🮖🮖 🭦🭛         🮰 🭇🬼🭭 🭊🬿 🭋🭀   ⎭⯋⎩ ▯▮  ▫◻□■◼▪⬝·
+    🮌█🮍                 ╲╱  🭇🬼🭈🬽🭉🬾◢◣🭇🭃🭎🬼🭈🭆🭂🭍🭑🬽🭉🭁🭌🬾🭈🭄🭏🬽🭅🭐 ◦○◯⬤◖◗ ⬫⬦⬨♢◊◇◆♦⬧⬥⬩⬪
+    ▒🮏▒                     🭢🭗🭣🭘🭤🭙◥◤🭢🭔🭟🭗🭣🭧🭓🭞🭜🭘🭤🭒🭝🭙🭣🭕🭠🭘🭖🭡  ∘⭘●          
+                                               🭢🭗  🭥🭚 🭦🭛    •
+
+The same with Unscii 2.0 codepoints (no characters above U+FFFF):
+
+          ╎┆┊  ╱▔╲                 ▵        ↑        ◬
+ ╶─╴╺━╸ ═ ╎┆┊ ⎹ ⎸▣⎹ ⎸  ▝▛▀▜▘                    △    ▴   ╽       ◭⬘◮
+╷┌┬┐┍┯┑╒╤╕╏┇┋  ▁ ⎸  ▚▌█▐▞       ▁▂▃▄▅▆▇█ ◃◅◁╳▷▻▹ ▲ ←╼╋╾→     ◩⬒⬔
+│├┼┤┝┿┥╞╪╡╏┇┋ ⎹╱ ╳ ╲⎸  ▗▙▄▟▖       █▀▔⎹    ▽ ◂◄◀▶►▸╿  ⮝   ⬖◧◫◨⬗
+╵└┴┘┕┷┙╘╧╛┞╀┦  ▔▔▔▔▔          ▕▉ ◞◡◯◡ ◎    ▿    ▼   ↓ ⮜◈⮞   ⬕⬓◪  
+╻┎┰┒┏┳┓  ┭╆╈╅┮╍╍╌╌      ▊◝◠◯◉◯◡◟         ▾      ⮟   ◕ ⬙ ◔
+┃┠╂┨┣╋┫ ╺┽╊◙╉┾┅┅┄┄        ▋◍ ◠◯◠◜   ◿◺                     
+╹┖┸┚┗┻┛ ━┵╄╇╃┶┉┉┈┈      ▐▌ ◌    ◹◸  ⚞⚟       ◙◛◶─◵
+ ╓╥╖   ╔╦╗┢╁┪ ┟┱┲┧      ▍     ◙╭──╮⎫⎧    ◘◙│◲┼◱╭◒╮
+║╟╫╢╠╬╣ ╹┃ ┡┹┺┩      ▎    ◢◣  │ ▢ ⎮⎪    ◙◚◷┼◴│◑╋◐
+ ╙╨╜ ╚╩╝                  ▏    ⎸◆╰──╯⎬⎯⎨       ◳─◰╰◓╯    
+  ░░▓▓██▤▤▥▥▦▦▩▩▧▧▨▨  █▁▔  ◥◤       ⎮⯊⎪ ▱▰    ▭▬
+  ░░▒▒▓▓██▤▤▥▥▦▦▩▩▧▧▨▨                ⎭⯋⎩ ▯▮  ▫◻□■◼▪⬝·
+    █                 ╲╱  ◢◣ ◦○◯⬤◖◗ ⬫⬦⬨♢◊◇◆♦⬧⬥⬩⬪
+    ▒▒                     ◥◤  ∘⭘●          
+                                                      •
+

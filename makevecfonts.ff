@@ -1,0 +1,10 @@
+#!/usr/bin/env fontforge
+
+Open($argv[1]+".svg")
+SetFontNames($argv[1],'unscii',$argv[1])
+SelectAll()
+RemoveOverlap()
+Generate($argv[1]+".ttf")
+Generate($argv[1]+".otf")
+Generate($argv[1]+".woff")
+
