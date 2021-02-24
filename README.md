@@ -4,6 +4,9 @@ A bitmapped Unscii font based on classic system fonts.
 
 See http://viznut.fi/unscii/ for more.
 
+The compiled font files are also included in fontfiles/ for your
+convenience.
+
 Font compilation starts from the file src/unscii.txt which also contains
 some more documentation, including information about the rest of the files
 in the src directory.
