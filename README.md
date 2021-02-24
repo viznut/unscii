@@ -17,8 +17,8 @@ indicates whether the glyph is 8x8, 8x16 or 16x16.
 
 Licensing: You can consider it Public Domain (or CC-0) except for the files
 derived from or containing parts of Roman Czyborra's Unifont project
-(unifont.hex, hex2bdf.pl, unscii-16-full.*). See
-https://savannah.gnu.org/projects/unifont/
+(unifont.hex, hex2bdf.pl, unscii-16-full.*) which fall under GPL. See
+https://savannah.gnu.org/projects/unifont/ for more.
 
 The program code in this directory:
 - Makefile: builds the font files and some other stuff
