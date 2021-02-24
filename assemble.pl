@@ -1,7 +1,6 @@
 #!/usr/bin/env perl
 
 use Encode;
-# use Text::CharWidth;
 
 %bitmaps8x8={};
 %bitmaps8x16={};
@@ -176,7 +175,8 @@ sub readin
 {
   my $filename = ($_[0] eq 'PATCH')?"font-$patch.txt":$_[0];
   return if($filename eq 'font-.txt');
-  
+
+  $filename="src/$filename";
   open(my $F,$filename) || die "File not found: $filename";
   print "Assembling ".$_[0]." ...\n";
   my $linenum=0;

@@ -1,7 +1,9 @@
-SRC=unscii.txt punctuation.txt numbers.txt math.txt textsymbols.txt \
-latin.txt greek.txt cyrillic.txt hebrew.txt arabic.txt katakana.txt runes.txt \
-diacritics.txt symbols.txt arrows.txt shapes.txt lines.txt patterns.txt \
-divisions.txt grids.txt pictures.txt ctrl.txt
+SRC=src/unscii.txt src/punctuation.txt src/numbers.txt src/math.txt \
+src/textsymbols.txt src/latin.txt src/greek.txt src/cyrillic.txt \
+src/hebrew.txt src/arabic.txt src/katakana.txt src/runes.txt \
+src/diacritics.txt src/symbols.txt src/arrows.txt src/shapes.txt \
+src/lines.txt src/patterns.txt src/divisions.txt src/grids.txt \
+src/pictures.txt src/ctrl.txt
 
 CC=gcc -Os
 
@@ -23,16 +25,16 @@ unscii-16.hex: $(SRC)
 unscii-8.hex: $(SRC)
 	./assemble.pl
 
-unscii-8-alt.hex: $(SRC) font-alt.txt
+unscii-8-alt.hex: $(SRC) src/font-alt.txt
 	./assemble.pl alt
 
-unscii-8-thin.hex: $(SRC) font-thin.txt
+unscii-8-thin.hex: $(SRC) src/font-thin.txt
 	./assemble.pl thin
 
-unscii-8-mcr.hex: $(SRC) font-mcr.txt
+unscii-8-mcr.hex: $(SRC) src/font-mcr.txt
 	./assemble.pl mcr
 
-unscii-8-fantasy.hex: $(SRC) font-fantasy.txt
+unscii-8-fantasy.hex: $(SRC) src/font-fantasy.txt
 	./assemble.pl fantasy
 
 unscii-8-tall.hex: unscii-8.hex
