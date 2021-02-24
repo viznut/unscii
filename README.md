@@ -15,6 +15,11 @@ The .hex format is basically the same as in the Unifont project. Each line
 consists of codepoint:hexbitmap, and the length of the bitmap string
 indicates whether the glyph is 8x8, 8x16 or 16x16.
 
+Licensing: You can consider it Public Domain (or CC-0) except for the files
+derived from or containing parts of Roman Czyborra's Unifont project
+(unifont.hex, hex2bdf.pl, unscii-16-full.*). See
+https://savannah.gnu.org/projects/unifont/
+
 The program code in this directory:
 - Makefile: builds the font files and some other stuff
 - assemble.pl: compiles the files under src/ into .hex files.
@@ -25,9 +30,9 @@ The program code in this directory:
 - hex2bdf.pl: converts a .hex file into X11 .bdf format (from Unifont)
 - makeconverters.pl: makes shell scripts that convert between Unicode and legacy Unscii
 - makevecfonts.ff: a Fontforge script to build ttf/otf/woff fonts from an .svg font
-- merge-otherfonts.pl: fills in the missing glyphs from unifont.hex and fsex-adapte.hex
+- merge-otherfonts.pl: fills in the missing glyphs from unifont.hex and fsex-adapted.hex
 - vectorize.c: builds a .svg font file from a .hex file
 
 Other files in this directory:
 - fsex-adapted.hex: Fixedsys Excelsior, an older public domain font with some similarities to Unscii
-- unifont.hex: Unifont, the definitive Unicode bitmap font. see https://savannah.gnu.org/projects/unifont/
+- unifont.hex: Unifont, the definitive Unicode bitmap font.
