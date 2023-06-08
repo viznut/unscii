@@ -2,6 +2,7 @@ Atari 8-bit home computer systems (400, 800, XL, etc.)
 The character set is called ATSCII.
 
 U+0020
+8x8
 ........ 8192
 ........ 8193
 ........ 8194
