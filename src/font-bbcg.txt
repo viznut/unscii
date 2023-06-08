@@ -1,5 +1,6 @@
 BBC micro graphics mode font.
 
+8x8
 U+0021
 ...##...
 ...##...
